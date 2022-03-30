@@ -5,6 +5,7 @@ import { BLOCKS } from "@contentful/rich-text-types"
 
 import Layout from '../components/layout';
 import Head from "../components/head";
+import * as blogStyles from './blog.module.scss';
 
 //for markdown
 /* export const query = graphql`
@@ -69,8 +70,8 @@ const Blog = (props) => {
     return (
         <Layout>
             <Head title={props.data.contentfulBlogPost.title} />
-            <h1>{props.data.contentfulBlogPost.title}</h1>
-            <p>{props.data.contentfulBlogPost.publishedDate}</p>
+            <h1 className={blogStyles.heading}>{props.data.contentfulBlogPost.title}</h1>
+            <small className={blogStyles.publishedDate}>{props.data.contentfulBlogPost.publishedDate}</small>
             {renderRichText(props.data.contentfulBlogPost.body, options)}
         </Layout>
     )
